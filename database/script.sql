@@ -1,0 +1,6 @@
+CREATE DATABASE Wiki;
+USE Wiki;
+CREATE TABLE Users{
+  
+
+}
