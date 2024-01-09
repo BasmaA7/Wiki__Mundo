@@ -7,6 +7,6 @@
   <link rel="stylesheet" href="../public/style/dist/output.css">
 </head>
 <body>
-  <h1 class="text-red-800 text-3xl">Hello word</h1>
+<?php include "includes/nav.php";?>
 </body>
 </html>
