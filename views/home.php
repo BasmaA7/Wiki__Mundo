@@ -24,8 +24,11 @@
                 </svg>
             </a>
         </div>
-        <div>
+        <div class="flex flex-col justify-center">
+        
+        <?php include "includes/searchInput.php";?>
           </div>
+         
  </div>
 
 </section>

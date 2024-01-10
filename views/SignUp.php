@@ -26,7 +26,7 @@
                 
                 <h1 class="text-3xl font-semibold mb-6  text-gray-900 text-center">Sign <span class="text-orange-500"> Up</span></h1>
       <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">Join to Our Community with all time access and free </h1> 
-      <form action="#" method="POST" class="space-y-4">
+      <form action="" method="POST" class="space-y-4">
         <!-- Your form elements go here -->
         <div>
           <label for="username" class="block text-sm font-medium  text-gray-900">Username</label>

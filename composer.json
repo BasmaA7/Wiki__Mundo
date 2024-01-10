@@ -1,0 +1,17 @@
+{
+    "name": "youcode/Wiki__Mundo",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Basma",
+            "email": "basmaelandalosy5@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
