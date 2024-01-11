@@ -1,5 +1,5 @@
 {
-    "name": "youcode/Wiki__Mundo",
+      "name": "youcode/wiki-mundo",
     "autoload": {
         "psr-4": {
             "app\\": "app/"
@@ -11,7 +11,5 @@
             "email": "basmaelandalosy5@gmail.com"
         }
     ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6"
-    }
+    "require": {}
 }

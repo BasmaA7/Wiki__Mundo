@@ -4,35 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-
   <title>Wiki__Mundo</title>
-  <link rel="stylesheet" href="../public/style/dist/output.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
 </head>
 <body class="bg-gray-100">
+    <!-- Navbar section -->
 <?php include "includes/nav.php";?>
-<section class=" container px-5 py-24 mx-auto bg-center" style="background-image: url('../public/assets/images/heropic.png')" >
+     <!-- Navbar section -->
 
-<div class="py-8 px-4  lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16 " >
+     <!-- ********** Start Hero section *************-->
+     <section class=" container px-5 py-24 mx-auto bg-center  " style="background-image: url('../public/assets/images/heropic.png')" >
+     <div class="py-8 px-4  lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16 " >
+
         <div class="flex flex-col justify-center">
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-5xl dark:text-white">" let's Exploring Together  with Wiki_Mundo!"</h1>
-            <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Discover, create, share. Dive into our knowledge community where every idea matters. Join us now!</p>
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-orange-500 md:text-5xl lg:text-5xl dark:text-white">" let's Exploring Together  with Wiki_Mundo!"</h1>
+            <p class="mb-6 text-lg font-normal text-white lg:text-xl dark:text-gray-100">Discover, create, share. Dive into our knowledge community where every idea matters. Join us now!</p>
             <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center">Read more about our app 
                 <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </a>
         </div>
+          <!--Bar de recherche-->
         <div class="flex flex-col justify-center">
-        
         <?php include "includes/searchInput.php";?>
-          </div>
-         
- </div>
+          </div>           
+   </div>
+  </section>
+     <!-- ******** End Hero section  ******************-->
 
-</section>
-
-
-<!--  les plus populaire -->
+<!-- les derniere wikis -->
 
  <section class=" " >
   <div class="container px-5 py-24 mx-auto">
@@ -189,18 +191,15 @@
 </div>
 </div>
 </section> -->
- <!--  footer section -->
 
- <?php include "includes/footer.php";?>
+
+
 
  
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+ <!--  footer section -->
+ <?php include "includes/footer.php";?>
+ <!--  footer section -->
+ 
 </body>
 </html>
 

@@ -6,7 +6,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 
   <title>Document</title>
-  <link rel="stylesheet" href="../public/style/dist/output.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -22,12 +22,11 @@
             </a>
         </div>
         <div>
-            <div class=" lg:max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800 ">
+            <div class=" lg:max-w-xl p-6 space-y-8 sm:p-8 bg-white  rounded-lg shadow-xl dark:bg-gray-800 ">
                 
                 <h1 class="text-3xl font-semibold mb-6  text-gray-900 text-center">Sign <span class="text-orange-500"> Up</span></h1>
       <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">Join to Our Community with all time access and free </h1> 
-      <form action="" method="POST" class="space-y-4">
-        <!-- Your form elements go here -->
+      <form action="" method="POST" class="space-y-4 ">
         <div>
           <label for="username" class="block text-sm font-medium  text-gray-900">Username</label>
           <input type="text" id="username" name="username" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
@@ -41,7 +40,7 @@
           <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300">
         </div>
         <div>
-          <button type="submit" class="w-full bg-black  text-gray-900p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Sign Up</button>
+          <button type="submit" class="w-full bg-black  text-gray-900p-2 rounded-md hover:bg-gray-800  focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Sign Up</button>
         </div>
       </form>
                 
