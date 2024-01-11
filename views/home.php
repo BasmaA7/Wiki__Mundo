@@ -38,7 +38,7 @@
   <div class="container px-5 py-24 mx-auto">
  <div class="text-center mb-12">
                 <h5 class="text-base md:text-lg text-indigo-700 mb-1">See Our Recent News</h5>
-                <h1 class="text-4xl md:text-6xl text-gray-700 font-semibold">Tailwind Css Responsive Cards</h1>
+                <h1 class="text-4xl md:text-6xl text-gray-700 font-semibold">**** The Wiki Articles **** </h1>
             </div>  
             <div class="flex space-x-4 my-8">  
 
