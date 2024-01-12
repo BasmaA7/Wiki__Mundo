@@ -35,4 +35,5 @@ class Connexion {
         return $this->conn;
     }
 }
-Connexion::getInst();
+
+// Connexion::getInst();

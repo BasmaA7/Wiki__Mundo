@@ -2,12 +2,15 @@
  use app\controllers\UserController;
 //  use app\controllers\ErrorController;
 //  define('APP_URL', "http://localhost/Wiki__Mundo/");
-//  require_once(__DIR__ . '/../../vendor/autoload.php');
 
+// require_once(__DIR__ . '/../../vendor/autoload.php');
+
+require_once "../app/controllers/UserController.php";
 
  if(isset( $_GET['action'])){
  $action= $_GET['action'];
- 
+
+
  switch($action){
  
   case 'read':
@@ -22,7 +25,12 @@
     $controllers = new UserController;
     $controllers->accepter();
     break;
+     case 'addusers':
 
+     $controllers= new UserController();
+     $controllers->createUser();
+
+    break;
   case 'wikiaccept':
     $controllers = new UserController;
     $controllers->refuser();

@@ -2,7 +2,7 @@
 namespace app\controllers;
 require_once __DIR__.'/../../vendor/autoload.php';
 use app\models\User;
-use app \helper\Validator;
+use app\helper\Validator;
 
 
 class UserController {
@@ -32,20 +32,22 @@ class UserController {
       $id = $_POST['id'];
       $wikis = new User;
       $wikis->refuser($id);
-      header("Location:index.php?route=dashboard ");
+      header("Location:index.php?action=dashboard ");
 
   }
 
 
  
-public function createUser (){
+public function createUser(){
   $name =Validator::validation($_POST['name']);
   $email =  Validator::validation($_POST['email']);
   $password =Validator::validation($_POST['password']);
-
+  $role =1;
   $password = password_hash($password, PASSWORD_BCRYPT);
+
+
   $user = new User();
-  $result = $user->addusers($user, $email,$password, $role);
+  $res= $user->addusers($name, $email,$password,$role);
 }
 }
 
