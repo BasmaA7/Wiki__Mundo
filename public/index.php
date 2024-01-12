@@ -1,24 +1,26 @@
 <?php
- use app\controllers\AdminController;
- use app\controllers\ErrorController;
- define('APP_URL', "http://localhost/Wiki__Mundo/");
- require_once(__DIR__ . '/../vendor/autoload.php');
+ use app\controllers\UserController;
+//  use app\controllers\ErrorController;
+//  define('APP_URL', "http://localhost/Wiki__Mundo/");
+//  require_once(__DIR__ . '/../../vendor/autoload.php');
 
 
  if(isset( $_GET['action'])){
  $action= $_GET['action'];
+ 
  switch($action){
  
   case 'read':
-    $controller= new AdminController;
+    $controller= new UserController;
+    $controller->index();
+   break;
+  case 'create':
+    $controller= new UserController;
     $controller->index();
    break;
  }
  }
- else {
-  $controller= new ErrorController;
-  $controller->error();
- }
+ 
  
  
  
