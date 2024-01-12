@@ -5,6 +5,11 @@ use app\database\Connexion;
 use PDO;
 class User  {
   private $db;
+  private $name;
+  private $email;
+  private $password;
+  private $role;
+
     public function __construct()
     {
         $this->db = Connexion::getInst()->getConnection();
@@ -18,25 +23,39 @@ class User  {
       return ($res);
     }
 
-    public function addusers($name, $email, $role) {
-      $stmt = $this->db->prepare('INSERT INTO users (name, email, role) VALUES (?, ?, ?)');
-      
-      // Vérifier si la préparation de la requête a réussi
-      if ($stmt) {
-          // Liaison des valeurs aux paramètres de la requête
-          $stmt->bindParam(1, $name);
-          $stmt->bindParam(2, $email);
-          $stmt->bindParam(3, $role);
-          
-          // Exécution de la requête
-          $stmt->execute();
-          
-          // Fermer la requête préparée
-          $stmt->closeCursor();
-          
-          echo "Utilisateur ajouté avec succès.";
-      } else {
-          // Gérer l'erreur de préparation de la requête
-          echo "Erreur lors de la préparation de la requête.";
-      }
-  }}
+
+    public function getallwikis()
+    {
+
+        $query = "SELECT w.*, c.nom as nom FROM wikis w INNER JOIN categories c ON w.id_categorie = c.id WHERE w.statue = 0";
+        $stm = $this->db->prepare($query);
+        $stm->execute();
+        $res = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+        return ($res);
+    }
+    public function acceptwiki($id) {
+      $stmt =  $this->db->prepare("update wikis set statue = 1 where id = $id");
+      $stmt->execute();
+      $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
+  }
+    
+    public function refuser($id)
+    {
+
+        $stmt = $this->db->prepare("delete from wikis where id = $id");
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+    public function addusers($name, $email, $password, $role) {
+      $stmt = $this->db->prepare('INSERT INTO users (null,name,password, email, role) VALUES (null,?,?,?, ?)');
+      $stmt->execute();
+
+    
+
+}
+}

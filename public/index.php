@@ -18,6 +18,15 @@
     $controller= new UserController;
     $controller->index();
    break;
+   case 'wikidelete':
+    $controllers = new UserController;
+    $controllers->accepter();
+    break;
+
+  case 'wikiaccept':
+    $controllers = new UserController;
+    $controllers->refuser();
+    break;
  }
  }
  
