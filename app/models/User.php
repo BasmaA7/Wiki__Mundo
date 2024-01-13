@@ -62,11 +62,6 @@ class User {
         // exit;
         
         $stmt = $this->db->prepare($sql);
-
-        $stmt->bindParam(1, $name);
-        $stmt->bindParam(2, $email);
-        $stmt->bindParam(3, $password);
-        $stmt->bindParam(4, $role);
         $success = $stmt->execute();
 
         return $success;
@@ -78,13 +73,21 @@ class User {
 
      
       public function getUserByEmail($email) {
-        $sql=('SELECT * FROM users WHERE email = ?');
-        $stmt = $this->db->prepare($sql);
-        // $stmt->bindParam(1, $email);
-        $stmt->execute();
-       $res= $stmt->fetch(PDO::FETCH_ASSOC);
-        return $res;
+        try {
+            $sql = 'SELECT * FROM `users` WHERE email = :email';
+            $stmt = $this->db->prepare($sql);
+         
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+        
+            $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+            return $userData;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
+    
 
 
 }
