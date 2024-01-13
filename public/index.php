@@ -31,6 +31,12 @@ require_once "../app/controllers/UserController.php";
      $controllers->createUser();
 
     break;
+     case 'logIn':
+
+     $controllers= new UserController();
+     $controllers->login();
+
+    break;
   case 'wikiaccept':
     $controllers = new UserController;
     $controllers->refuser();

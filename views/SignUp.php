@@ -10,7 +10,6 @@
 
 </head>
 <body>
-  <?php include '../app/controllers/signupController.php'?>
 <section class="bg-gray-100 dark:bg-gray-900">
     <div class="py-8 px-4  lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16 " style="background-image:url(../public/assets/images/signPic.png)">
         <div class="flex flex-col justify-center">
