@@ -24,6 +24,7 @@ form.addEventListener("submit", (e) => {
   passwordError.classList.add("hidden");
 
   // Valider les champs et afficher les erreurs si nécessaire
+  
   if (!nameRegex.test(inputName)) {
     nameError.classList.remove("hidden");
   }
