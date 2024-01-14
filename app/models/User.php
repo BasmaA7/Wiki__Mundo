@@ -18,23 +18,57 @@ class User {
         $this->db = $this->conn->getConnection();
 
     }
-    public function getallusers()
-    {
-      $query = "SELECT * FROM users";
+    public function getallusers(){
+    
+      $query = "SELECT * FROM `users`";
       $stmt = $this->db->prepare($query);
       $stmt->execute();
       $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return ($res);
+
     }
+    // public function getallwikis()
+    // {
 
+    //     $query = "SELECT w.*, c.nom as nom FROM wikis w INNER JOIN categories c ON w.id_categorie = c.id WHERE w.statue = 0";
+    //     $stm = $this->db->prepare($query);
+    //     $stm->execute();
+    //     $records = $stm->fetchAll(PDO::FETCH_ASSOC);
 
+    //     return ($records);
+    // }
+    // public function getAllcategories()
+    // {
+    //     $query = "SELECT * FROM categories";
+    //     $stmt = $this->db->prepare($query);
+    //     $stmt->execute();
+    //     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     return $records;
+    // }
+
+   
+    // public function getAlltags()
+    // {
+    //     $query = "SELECT * FROM tags";
+    //     $stmt = $this->db->prepare($query);
+    //     $stmt->execute();
+    //     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     return $records;
+    // }
+    // public function countUsers(){
+    //   $sql="SELECT COUNT(*) as num_users from users";
+    //   $stmt = $this->db->prepare($sql);
+    //   $stmt->execute();
+    //   $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    //   return $result['num_users'];
+    //   }
     
-    public function acceptwiki($id) {
-      $stmt =  $this->db->prepare("update wikis set statue = 1 where id = $id");
-      $stmt->execute();
-      $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      return $res;
-  }
+  //   public function acceptwiki($id) {
+  //     $stmt =  $this->db->prepare("update wikis set statue = 1 where id = $id");
+  //     $stmt->execute();
+  //     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  //     return $res;
+  // }
     
     public function refuser($id)
     {
@@ -44,7 +78,7 @@ class User {
         $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
+  
 
     public function addusers($name, $email, $password, $role) {
       try{
@@ -61,14 +95,7 @@ class User {
     }
 
       }
-      public function selectcategories()
-      {
-          $query = "SELECT * FROM categories";
-          $stmt = $this->db->prepare($query);
-          $stmt->execute();
-          $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-          return $res;
-      }
+  
      
       public function getUserByEmail($email) {
         try {

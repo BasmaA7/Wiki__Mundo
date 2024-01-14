@@ -1,9 +1,9 @@
 <?php
  use app\controllers\UserController;
-//  use app\controllers\ErrorController;
-//  define('APP_URL', "http://localhost/Wiki__Mundo/");
+ use app\controllers\ErrorController;
+  define('APP_URL', "http://localhost/Wiki__Mundo/");
 
-// require_once(__DIR__ . '/../../vendor/autoload.php');
+//  require_once(__DIR__ . '/../../vendor/autoload.php');
 
 require_once "../app/controllers/UserController.php";
 
@@ -12,10 +12,11 @@ require_once "../app/controllers/UserController.php";
 
 
  switch($action){
- 
+
   case 'read':
     $controller= new UserController;
     $controller->index();
+   echo'hI';
    break;
   case 'create':
     $controller= new UserController;
@@ -31,15 +32,19 @@ require_once "../app/controllers/UserController.php";
      $controllers->createUser();
 
     break;
+    case 'dashboard':
+      $controllers = new UserController;
+      $controllers->index();
+      break;
   case 'logIn':
      
      $controllers= new UserController();
      $controllers->login();
     break;
-  case 'wikiaccept':
-    $controllers = new UserController;
-    $controllers->refuser();
-    break;
+  // case 'wikiaccept':
+  //   $controllers = new UserController;
+  //   $controllers->refuser();
+  //   break;
  }
  }
  

@@ -28,8 +28,7 @@
     <div class="bg-red-400 text-center">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Users</h5>
 </div >
-<p class="font-normal text-gray-700 dark:text-gray-400">                      
-<?= count($users) ?>
+<p class="font-normal text-gray-700 dark:text-gray-400"> 
 </p>
 </a>
 </div>
@@ -38,8 +37,6 @@
 <a href="#" class="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Wikis</h5>
 <p class="font-normal text-gray-700 dark:text-gray-400">
-<?= count($wikis) ?>
-
 </p>
 </a>
 </div>
@@ -48,7 +45,6 @@
 <a href="#" class="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tags</h5>
 <p class="font-normal text-gray-700 dark:text-gray-400">
-<?= count($tags) ?>
 
 </p>
 </a>
@@ -96,13 +92,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php if (!empty($users)) : ?>
+               
     <?php foreach ($users as $u) : ?>
                                        <tr class="border-b dark:border-gray-700">
-                                    <td class="px-4 py-3 text-center"><?=$u["id"]?></td>
-                                    <td class="px-4 py-3 text-center"> <?=$u["name"]?> </td>
-                                    <td class="px-4 py-3 text-center"><?=$u["email"]?> </td>
-                                    <td class="px-4 py-3 text-center"><?=$u["role_id"]?> </td>
+                                    <td class="px-4 py-3 text-center"><?=$u['id']?></td>
+                                    <td class="px-4 py-3 text-center"> <?=$u['name']?> </td>
+                                    <td class="px-4 py-3 text-center"><?=$u['email']?> </td>
+                                    <td class="px-4 py-3 text-center"><?=$u['role_id']?> </td>
 
                                     <td class="px-4 py-3 text-center  ">
                                         <button id="apple-imac-27-dropdown-button" data-dropdown-toggle="apple-imac-27-dropdown" class=" inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 dark:hover-bg-gray-800 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
@@ -135,9 +131,9 @@
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
-<?php else : ?>
-    <p>Aucun utilisateur trouvé.</p>
-<?php endif; ?>                        </tbody>
+
+    <!-- <p>Aucun utilisateur trouvé.</p> -->
+                       </tbody>
                     </table>
                 </div>
 
@@ -155,5 +151,3 @@
 </body>
 
 </html> 
-
-

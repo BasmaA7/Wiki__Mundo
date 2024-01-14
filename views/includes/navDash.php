@@ -1,5 +1,5 @@
 
-<nav class="fixed top-0 z-50 w-full bg-green-900 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<nav class="fixed top-0 z-50 w-full  bg-gray-900 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <!--left nav-->
         <div class="flex items-center justify-between">
@@ -23,8 +23,8 @@
      <p class='text-white'>Welcome !</p>
       </div>
             <div class="flex items-center">
-                <div class="flex relative items-center ml-3 pr-5 bg-green-500">
-                    <div class="bg-red-600 ">
+                <div class="flex relative items-center ml-3 pr-5 ">
+                    <div >
                         <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" id="dropdown-user-button" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
                             <img class="w-8 h-8 rounded-full" src="../../public/assets/images/adminpic.JPG" alt="user photo" />
