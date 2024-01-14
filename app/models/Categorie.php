@@ -9,14 +9,39 @@ use PDO;
     $this->db = Connexion::getInst()->getConnection();
 
  }
-    public function selectcategories()
-    {
-        $query = "SELECT * FROM categories";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
-    }
+ public function addcategories($name){
+   $sql="INSERT INTO categories (name) VALUE (?)";
+   $stmt =  $this->db->prepare($sql);
+   $stmt->execute([$name]);
+  
+}
+public function categoriedelete($id) {
+  $sql= "DELETE FROM categories WHERE id = ?";
+   $stmt = $this->db->prepare($sql);
+
+   $stmt->execute([$id]);
+   
+   header("Location: index.php?action=dashboard");
+
+}
+
+public function update($name){
+   $stmt= $this->db->prepare("UPDATE categories SET name = :name where id = :id"); 
+   // $stmt->bindParam(':id', $name->getId());
+   // $stmt->bindParam(':name', $name->getName());
+
+   $stmt->execute();
+}
+
+
+
 
  }
 
+
+ 
+ 
+ 
+  
+   
+   

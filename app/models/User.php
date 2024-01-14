@@ -28,16 +28,7 @@ class User {
     }
 
 
-    public function getallwikis()
-    {
-
-        $query = "SELECT w.*, c.nom as nom FROM wikis w INNER JOIN categories c ON w.id_categorie = c.id WHERE w.statue = 0";
-        $stm = $this->db->prepare($query);
-        $stm->execute();
-        $res = $stm->fetchAll(PDO::FETCH_ASSOC);
-
-        return ($res);
-    }
+    
     public function acceptwiki($id) {
       $stmt =  $this->db->prepare("update wikis set statue = 1 where id = $id");
       $stmt->execute();
@@ -70,7 +61,14 @@ class User {
     }
 
       }
-
+      public function selectcategories()
+      {
+          $query = "SELECT * FROM categories";
+          $stmt = $this->db->prepare($query);
+          $stmt->execute();
+          $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          return $res;
+      }
      
       public function getUserByEmail($email) {
         try {

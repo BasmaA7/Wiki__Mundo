@@ -15,6 +15,7 @@ class UserController {
   //   $categories=$categories->selectcategories();
   $wikis = new User;
   $wikis = $wikis->getallwikis();
+  // $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
 
     include "../../views/Dashbords/dachboard.php";
   }

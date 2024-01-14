@@ -10,10 +10,21 @@ form.addEventListener("submit", (e) => {
 
   const passwordError = document.querySelector("#password-error");
 
-  // Reset error messages
   passwordError.classList.add("hidden");
 
   if (!inputEmail || !inputPassword) {
     passwordError.classList.remove("hidden");
   } 
-});
+  else{
+    
+      const response = await loginUser(inputEmail, inputPassword);
+      
+      if (response.success) {
+        // Redirect to the appropriate page based on the user's role
+        if (response.role === 1) {
+          window.location.href = "../views/home.php";
+        } else if (response.role === 2) {
+          window.location.href = "../views/Dashbords/dachboard.php";
+        }}}
+  }
+);

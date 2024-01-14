@@ -1,5 +1,4 @@
-<div class=" relative z-10 w-full bg-gray-950 shodow-sm">
-<nav class=" relative flex items-center justify-between w-full max-w-screen-xl px-5 py-5 mx-auto text-white lg:px-2lg:shadow-none ">
+<nav class="fixed top-0 z-50 w-full bg-green-900 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
   <div class="flex justify-between">
       <img src="../public/assets/images/logoWiki.png" style="width: 8%; height: 8%" class="rounded-full" alt="Wiki__Mundo Logo" />
   
