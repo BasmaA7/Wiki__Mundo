@@ -1,47 +1,57 @@
 <?php 
 namespace app\controllers;
-require_once __DIR__.'/../../vendor/autoload.php';
-use app\models\User;
+// require_once __DIR__.'/../../vendor/autoload.php';
+use app\models\Admin;
 use app\models\Categorie;
-use app\Models\Tag;
+use app\models\Tag;
 use app\helper\Validator;
 
 
-class UserController {
+class AdminController {
   public function index (){
-    $users= new User();
+    $users= new Admin();
     $users= $users-> getallusers();
 
-    // $wikis = new User();
-    // $wikis = $wikis->getallwikis();
-
-    // $wikisaccepted = new User();
+  
+$wikis=new Admin();
+$wikis= $wikis->selectwikis();
+    // $wikisaccepted = new Admin();
     // $wikisaccepted = $wikisaccepted->getacceptedwikis();
 
-    // $tags = new User();
-    // $tags = $tags->getalltags();
+    $tags = new Admin();
+    $tags = $tags->selectTags();
 
-    // $categories = new User();
-    // $categories = $categories->getAllcategories();
-   
+    $category= new Admin();
+    $category = $category->selectcategories();
+
  
-    include "../../views/Dashbords/dachboard.php";
+    include "../views/Dashbords/dachboard.php";
 
 
     
   }
  
+//   public function createUser(){
+//     $name =Validator::validation($_POST['name']);
+//     $email =  Validator::validation($_POST['email']);
+//     $password =Validator::validation($_POST['password']);
+//     $role =1;
+//     $password = password_hash($password, PASSWORD_BCRYPT);
+//     $user = new Admin();
+//     $res= $user->addusers($name, $email,$password,$role);
+//    header('location:../../views/logIn.php');
+  
 //   public function accepter()
 //   {
 //       $id = $_POST['id'];
-//       $wiki = new User;
+//       $wiki = new Admin();
 //       $wikis = $wiki->acceptwiki($id);
 //       header('Location: ' . $_SERVER['HTTP_REFERER']);
 //   }
 //   public function archive()
 //     {
 //         $id = $_POST['id'];
-//         $wikis = new User;
+//         $wikis = new Admin();
 //         $wikis->archive($id);
 //         header('Location: ' . $_SERVER['HTTP_REFERER']);
 //     }
@@ -49,7 +59,7 @@ class UserController {
     // public function delete()
     // {
     //     $id = $_POST['id'];
-    //     $wikis = new User;
+    //     $wikis = new Admin();
     //     $wikis->delete($id);
     //     header("Location:index.php?action=dashboard ");
 
@@ -57,7 +67,7 @@ class UserController {
   public function refuser()
   {
       $id = $_POST['id'];
-      $wikis = new User;
+      $wikis = new Admin();
       $wikis->refuser($id);
       header("Location:index.php?action=dashboard ");
 
@@ -68,9 +78,9 @@ class UserController {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $tags = new Tag;
-            $nom = $_POST['nom_tag'];
+            $nom = $_POST['titre'];
             $tags->addtags($nom);
-            header("Location:index.php?route=dashboard ");
+            header("Location:index.php?action=dashboard ");
 
         }
     }
@@ -80,27 +90,18 @@ class UserController {
         $id = $_POST['id'];
         $tagsModel = new Tag;
         $tagsModel->tagdelete($id);
-        header("Location: index.php?route=dashboard");
+        header("Location: index.php?action=dashboard");
 
     }
-public function createUser(){
-  $name =Validator::validation($_POST['name']);
-  $email =  Validator::validation($_POST['email']);
-  $password =Validator::validation($_POST['password']);
-  $role =1;
-  $password = password_hash($password, PASSWORD_BCRYPT);
-  $user = new User();
-  $res= $user->addusers($name, $email,$password,$role);
- header('location:../views/logIn.php');
-}
+
 
 public function addCategories()
 {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-        $tags = new Categorie;
-        $nom = $_POST['nom_categorie'];
-        $tags->addcategories($nom);
+        $category = new Categorie;
+        $nom = $_POST['nom'];
+        $category->addcategories($nom);
         header("Location:index.php?action=dashboard ");
 
     }
@@ -121,7 +122,7 @@ public function login() {
   $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
   $password = $_POST['password'];
 
-  $user = new User();
+  $user = new Admin();
   $userData = $user->getUserByEmail($email);
 
   if ($userData && password_verify($password, $userData['password'])) {

@@ -14,7 +14,7 @@
                 
 
                 <a href="#" class="flex ml-2 md:mr-24 items-center">
-                <img src="../../public/assets/images/logoWiki.png" style="width: 8%; height: 8%" class="rounded-full" alt="Wiki__Mundo Logo" />
+                <img src="assets/images/logoWiki.png" style="width: 8%; height: 8%" class="rounded-full" alt="Wiki__Mundo Logo" />
 
                 </a>
             </div>
@@ -27,7 +27,7 @@
                     <div >
                         <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" id="dropdown-user-button" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="../../public/assets/images/adminpic.JPG" alt="user photo" />
+                            <img class="w-8 h-8 rounded-full" src="assets/images/adminpic.JPG" alt="user photo" />
                         </button>
                     </div>
 

@@ -7,25 +7,13 @@ use PDO;
 
 class Wiki {
 
-   
     protected $db;
     public function __construct() {
         
         $this->db = Connexion::getInst()->getConnection();
 
     }
-    public function getwikis(){
-        $query = "SELECT w.titre, c.name, w.contenu FROM wikis w INNER JOIN categories c ON w.id_categorie = c.id WHERE w.statue = 1 LIMIT 6";  
-         $stm = $this->db->prepare($query);
-        $stm->execute();
-        
-       
-        $res = $stm->fetchAll(PDO::FETCH_ASSOC);
-      
-        return($res);
-    }
 
-    
 }
 // class Wiki {
 

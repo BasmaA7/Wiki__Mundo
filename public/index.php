@@ -1,11 +1,13 @@
-<?php
- use app\controllers\UserController;
+<?php 
+require_once('../vendor/autoload.php');
+ use app\controllers\AdminController;
+ use app\controllers\SignupController;
  use app\controllers\ErrorController;
   define('APP_URL', "http://localhost/Wiki__Mundo/");
 
-//  require_once(__DIR__ . '/../../vendor/autoload.php');
 
-require_once "../app/controllers/UserController.php";
+
+require_once "../app/controllers/AdminController.php";
 
  if(isset( $_GET['action'])){
  $action= $_GET['action'];
@@ -14,37 +16,39 @@ require_once "../app/controllers/UserController.php";
  switch($action){
 
   case 'read':
-    $controller= new UserController;
+    $controller= new AdminController;
     $controller->index();
-   echo'hI';
    break;
   case 'create':
-    $controller= new UserController;
+    $controller= new AdminController;
     $controller->index();
    break;
-   case 'wikidelete':
-    $controllers = new UserController;
-    $controllers->accepter();
-    break;
-     case 'addusers':
+  //  case 'wikidelete':
+  //   $controllers = new AdminController;
+  //   $controllers->accepter();
+  //   break;
+   case 'addusers':
+     $controllers= new SignupController();
+     $controllers->index();
 
-     $controllers= new UserController();
-     $controllers->createUser();
-
     break;
-    case 'dashboard':
-      $controllers = new UserController;
-      $controllers->index();
-      break;
+    case'wikis';
+    $wikis=new AdminController();
+    $wikis->index();
+    break;
+    case'categorie';
+    $category = new AdminController();
+    $category = index();
+    break;
   case 'logIn':
      
-     $controllers= new UserController();
+     $controllers= new AdminController();
      $controllers->login();
     break;
-  // case 'wikiaccept':
-  //   $controllers = new UserController;
-  //   $controllers->refuser();
-  //   break;
+  case 'wikiaccept':
+    $controllers = new AdminController;
+    $controllers->refuser();
+    break;
  }
  }
  
