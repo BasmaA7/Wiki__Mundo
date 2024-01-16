@@ -1,13 +1,13 @@
 <?php 
 require_once('../vendor/autoload.php');
- use app\controllers\AdminController;
+ use app\controllers\UserController;
  use app\controllers\SignupController;
  use app\controllers\ErrorController;
   define('APP_URL', "http://localhost/Wiki__Mundo/");
 
 
 
-require_once "../app/controllers/AdminController.php";
+require_once "../app/controllers/UserController.php";
 
  if(isset( $_GET['action'])){
  $action= $_GET['action'];
@@ -16,15 +16,27 @@ require_once "../app/controllers/AdminController.php";
  switch($action){
 
   case 'read':
-    $controller= new AdminController;
+    $controller= new UserController;
     $controller->index();
    break;
+  case 'readWikis':
+    $controller= new UserController;
+    $controller->dashWiki();
+   break;
+  case 'readTags':
+    $controller= new UserController;
+    $controller->dashTag();
+   break;
+  case 'readCat':
+    $controller= new UserController;
+    $controller->dashCat();
+   break;
   case 'create':
-    $controller= new AdminController;
+    $controller= new UserController;
     $controller->index();
    break;
   //  case 'wikidelete':
-  //   $controllers = new AdminController;
+  //   $controllers = new UserController;
   //   $controllers->accepter();
   //   break;
    case 'addusers':
@@ -33,23 +45,57 @@ require_once "../app/controllers/AdminController.php";
 
     break;
     case'wikis';
-    $wikis=new AdminController();
+    $wikis=new UserController();
     $wikis->index();
     break;
-    case'categorie';
-    $category = new AdminController();
-    $category = index();
+    case'AddCategorie';
+    $category= new UserController;
+    $category->addCategories();
+
     break;
-  case 'logIn':
+    case'deleteCa';
+    $controllers = new UserController();
+    $controllers -> suprimerCa();
+    break;
+
+  case 'logIn';
      
-     $controllers= new AdminController();
+     $controllers= new UserController();
      $controllers->login();
     break;
+  
+
+    case 'sup';
+    $user=new UserController();
+    $user->delete();
+    break;
+
+    case'updeateCat';
+    $category=new UserController;
+    $category->UpdateCa();
+    break;
+
+    case'AddTag';
+ $tag=new UserController();
+ $tag->addTag();
+ break;
+    case'DeleteTag';
+ $tag=new UserController();
+ $tag->tagdelete();
+ break;
+
+
+case 'wikiarchive':
+  $controllers = new UserController();
+  $controllers->archive();
+  break;
   case 'wikiaccept':
-    $controllers = new AdminController;
+    $controllers = new UserController();
     $controllers->refuser();
     break;
  }
+ 
+ 
  }
  
  

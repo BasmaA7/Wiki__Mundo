@@ -1,7 +1,7 @@
 <?php 
 namespace app\controllers;
 require_once __DIR__.'/../../vendor/autoload.php';
-use app\models\Admin;
+use app\models\User;
 use app\helper\Validator;
 
 class SignupController {
@@ -12,7 +12,8 @@ class SignupController {
       $password = Validator::validation($_POST['password']);
       $role = 1;
       $password = password_hash($password, PASSWORD_BCRYPT);
-    $user=new Admin();
+      $user=new User();
+
       // Ajouter des vérifications ici
       if ($name && $email && $password) {
 

@@ -6,7 +6,7 @@ use app\database\Connexion;
 use PDO;
 use PDOException;
 
-class Admin
+class User
 {
   private $db;
   private $conn;
@@ -34,38 +34,7 @@ class Admin
 
 
 
-  public function selectwikis()
-  {
-    $query = "SELECT wikis.titre_wiki,users.name,categories.nom From wikis 
-      INNER JOIN users ON wikis.user_id=users.id
-      INNER JOIN categories ON wikis.categorie_id=categories.id ";
-    $stm = $this->db->prepare($query);
-
-    $stm->execute();
-    $records = $stm->fetchAll(PDO::FETCH_ASSOC);
-
-
-    return ($records);
-  }
-
-  public function selectcategories()
-  {
-
-    $query = "SELECT *FROM categories";
-    $stmt = $this->db->prepare($query);
-    $stmt->execute();
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $res;
-
-  }
-  public function selectTags()
-  {
-    $query = "SELECT * FROM tags";
-    $stmt = $this->db->prepare($query);
-    $stmt->execute();
-    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $records;
-  }
+ 
 
   // public function countUsers(){
   //   $sql="SELECT COUNT(*) as num_users from users";
@@ -90,6 +59,13 @@ class Admin
     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function deleteusers($id){
+    $sql = 'DELETE FROM users WHERE id = :id';  
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);  
+    $res = $stmt->execute();
+    return $res;
+}
 
 
   public function addusers($name, $email, $password, $role)

@@ -16,7 +16,7 @@
 <body>
   <section class="bg-gray-100 dark:bg-gray-900">
     <div class="py-8 px-4  lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16 "
-      style="background-image:url(../public/assets/images/signPic.png)">
+      style="background-image:url(assets/images/signPic.png)">
       <div class="flex flex-col justify-center">
         <h1
           class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-white">

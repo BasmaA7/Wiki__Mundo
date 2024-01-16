@@ -28,12 +28,12 @@
 
       <form  method="POST" id="form" action="/Wiki__Mundo/public/index.php?action=logIn" class="space-y-4 flex flex-col justify-evenly" id="form">
         <div>
-          <input type="email" name='email' id="email"
+          <input type="email" name='email' 
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light "
             placeholder="Email" >
         </div>
         <div>
-          <input type="password" name="password" id="password"
+          <input type="password" name="password" 
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
             placeholder="Password" >
         </div>

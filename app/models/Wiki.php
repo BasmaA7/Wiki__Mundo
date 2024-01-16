@@ -6,6 +6,7 @@ use app\database\Connexion;
 use PDO;
 
 class Wiki {
+  
 
     protected $db;
     public function __construct() {
@@ -13,6 +14,41 @@ class Wiki {
         $this->db = Connexion::getInst()->getConnection();
 
     }
+    public function selectwikis()
+    {
+      $query = "SELECT wikis.titre_wiki, wikis.contenu,wikis.status, users.name, categories.nom 
+          FROM wikis 
+          INNER JOIN users ON wikis.user_id = users.id
+          INNER JOIN categories ON wikis.categorie_id = categories.id 
+          WHERE wikis.status = 1 
+          LIMIT 5";
+
+      $stm = $this->db->prepare($query);
+    
+      $stm->execute();
+      $records = $stm->fetchAll(PDO::FETCH_ASSOC);
+    
+    
+      return ($records);
+    }
+    public function Reservwikis()
+    {
+      $query = "SELECT wikis.titre_wiki, wikis.contenu,wikis.status, users.name, categories.nom 
+          FROM wikis 
+          INNER JOIN users ON wikis.user_id = users.id
+          INNER JOIN categories ON wikis.categorie_id = categories.id 
+          WHERE wikis.status =0
+          LIMIT 5";
+
+      $stm = $this->db->prepare($query);
+    
+      $stm->execute();
+      $records = $stm->fetchAll(PDO::FETCH_ASSOC);
+    
+    
+      return ($records);
+    }
+
 
 }
 // class Wiki {

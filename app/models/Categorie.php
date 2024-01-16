@@ -2,6 +2,8 @@
 namespace app\models;
 require_once __DIR__.'/../../vendor/autoload.php';
 use app\database\Connexion;
+use PDO;
+use PDOException;
 //  class Categorie{
 //     private $db;
 //  public function __construct(){
@@ -41,18 +43,53 @@ use app\database\Connexion;
 class Categorie {
 
     private $db;
+    private $conn;
+
 
     public function __construct()
     {
-        $this->db =Connexion::getInst()->getConnection();
+        $this->conn = Connexion::getInst();
+        $this->db = $this->conn->getConnection();
+
     }
   
-    public function addcategories($name){
-        $stmt =  $this->db->prepare("INSERT INTO categories (nom)
-        VALUE (?)");
-        $stmt->execute([$name]);
-       
+    public function selectcategories()
+    {
+  
+      $query = "SELECT *FROM categories";
+      $stmt = $this->db->prepare($query);
+      $stmt->execute();
+      $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
+  
     }
+
+   
+ public function addcategories($nom){
+   $sql="INSERT INTO `categories`(`nom`) VALUES (?)";
+   $stmt =  $this->db->prepare($sql);
+   $stmt->execute([$nom]);
+  
+}
+
+
+    public function deletecategorie($id){
+        $query="DELETE FROM categories WHERE id=:id";
+        $stmt=$this->db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
+        $res=$stmt->execute();
+        return $res;
+
+    }
+  
+    public function update($id,$name){
+        $query="UPDATE `categories` SET nom=':nom' WHERE id=:id";
+        $stmt=$this->db->prepare($query);
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+
+    }
+  
 }
     
  
