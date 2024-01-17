@@ -42,7 +42,7 @@
             and free </h1>
   
 
-        <form id="form" method="POST" action="/Wiki__Mundo/public/index.php?action=addusers" class="space-y-4 ">
+        <form id="form" method="POST" action="addusers" class="space-y-4 ">
     <div>
       <label for="name" class="block text-sm font-medium  text-gray-900">Username</label>
       <input id="name" type="text" name="name"
@@ -84,7 +84,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-  <script src="../public/assets/js/signUp.js"></script>
+  <script src="assets/js/signUp.js"></script>
 </body>
 
 </html>

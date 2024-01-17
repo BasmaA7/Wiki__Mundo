@@ -20,13 +20,21 @@ class UserController {
 
 }
 
-    function dashWiki(){
+   public function Wikires(){
+    $Reservwikis= new Wiki();
+    $Reservwikis =  $Reservwikis->Reservwikis();
+   
+    include "../views/Dashbords/WikiDashbord.php";
+
+   } 
+   public function dashWiki(){
         $wikis=new Wiki();
         $wikis= $wikis->selectwikis();
-        $wikisaccepted = new Wiki();
-        $wikisaccepted = $wikisaccepted->();
-        $ReservWeki = new Wiki();
-        $ReservWeki= $ReservWeki->Reservwikis();
+
+         $Reservwikis= new Wiki();
+    $Reservwikis =  $Reservwikis->Reservwikis();
+
+       
     include "../views/Dashbords/WikiDashbord.php";
       }
 
@@ -37,7 +45,7 @@ public function dashTag(){
     include "../views/Dashbords/tagDashbord.php";
 
 }
-   
+
 public function dashCat(){
     $category= new Categorie();
     $category = $category->selectcategories();
@@ -86,13 +94,21 @@ public function dashCat(){
         header("Location:read ");
 
     }
+ 
     
-  public function refuser()
-  {
-      $id = $_POST['id'];
-      $wikis = new User();
-      $wikis->refuser($id);
-      header("Location:index.php?action=read ");
+//   public function refuse()
+//   {
+//       $id = $_POST['id'];
+//       $wikis = new Wiki();
+//       $wikis=$wikis-> refuserWiki($id);
+//       header("Location:readWiki ");
+
+//   }
+  public function accepter(){
+    $id = $_POST['id'];
+    $acceptewikis=new Wiki();
+    $acceptewikis->accept($id);
+    header('Location:readWiki' );
 
   }
 
@@ -178,6 +194,7 @@ public function login() {
   $userData = $user->getUserByEmail($email);
 
   if ($userData && password_verify($password, $userData['password'])) {
+
       session_start();
       $_SESSION['id'] = $userData['id'];
       $_SESSION['name'] = $userData['name'];
@@ -185,14 +202,16 @@ public function login() {
       $_SESSION['role_id'] = $userData['role_id'];
 
       if ($_SESSION['role_id'] == 1) {
-          header("Location: ../views/home.php");
-      }elseif ($_SESSION['role_id'] == 2){
-          header("Location: ../views/Dashbords/dachboard.php");
+        header("Location:home ");
+        exit;
+    }elseif ($_SESSION['role_id'] == 2){
+          header("Location: read");
+          exit;
       }
-  } else {
 
- echo'Votre email et mot de passe sont incorrects, veuillez réessayer';
   }
+  header("Location:logIn");
+
 }
 
 

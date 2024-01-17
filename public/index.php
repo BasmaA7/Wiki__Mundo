@@ -2,6 +2,7 @@
 require_once('../vendor/autoload.php');
  use app\controllers\UserController;
  use app\controllers\SignupController;
+ use app\Controllers\HomeController;
  use app\controllers\ErrorController;
   define('APP_URL', "http://localhost/Wiki__Mundo/");
 
@@ -15,6 +16,12 @@ require_once "../app/controllers/UserController.php";
 
  switch($action){
 
+  case 'home':
+
+    $controllers = new HomeController;
+    $controllers->gethome();
+
+    break;
   case 'read':
     $controller= new UserController;
     $controller->index();
@@ -23,6 +30,7 @@ require_once "../app/controllers/UserController.php";
     $controller= new UserController;
     $controller->dashWiki();
    break;
+
   case 'readTags':
     $controller= new UserController;
     $controller->dashTag();
@@ -35,10 +43,7 @@ require_once "../app/controllers/UserController.php";
     $controller= new UserController;
     $controller->index();
    break;
-  //  case 'wikidelete':
-  //   $controllers = new UserController;
-  //   $controllers->accepter();
-  //   break;
+  
    case 'addusers':
      $controllers= new SignupController();
      $controllers->index();
@@ -60,10 +65,20 @@ require_once "../app/controllers/UserController.php";
 
   case 'logIn';
      
-     $controllers= new UserController();
+     $controllers= new SignupController();
      $controllers->login();
+  
     break;
   
+  case 'logInaction';
+     
+     $controllers= new UserController();
+     $controllers->login();
+  
+    break;
+    case'';
+    break;
+   
 
     case 'sup';
     $user=new UserController();
@@ -87,19 +102,24 @@ require_once "../app/controllers/UserController.php";
 
 case 'wikiarchive':
   $controllers = new UserController();
-  $controllers->archive();
+  $controllers->dashWiki();
   break;
+
   case 'wikiaccept':
     $controllers = new UserController();
-    $controllers->refuser();
+    $controllers-> accepter();
     break;
+  // case 'wikirefuse':
+  //   $controllers = new UserController();
+  //   $controllers->refuse();
+  //   break;
  }
  
  
  }
  
  
- 
+
  
  
  

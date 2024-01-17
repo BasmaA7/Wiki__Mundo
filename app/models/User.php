@@ -36,28 +36,10 @@ class User
 
  
 
-  // public function countUsers(){
-  //   $sql="SELECT COUNT(*) as num_users from users";
-  //   $stmt = $this->db->prepare($sql);
-  //   $stmt->execute();
-  //   $result = $stmt->fetch(PDO::FETCH_ASSOC);
-  //   return $result['num_users'];
-  //   }
+ 
 
-  //   public function acceptwiki($id) {
-  //     $stmt =  $this->db->prepare("update wikis set statue = 1 where id = $id");
-  //     $stmt->execute();
-  //     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  //     return $res;
-  // }
 
-  public function refuser($id)
-  {
-
-    $stmt = $this->db->prepare("delete from wikis where id = $id");
-    $stmt->execute();
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
+ 
 
   public function deleteusers($id){
     $sql = 'DELETE FROM users WHERE id = :id';  

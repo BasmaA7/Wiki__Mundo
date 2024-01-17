@@ -14,7 +14,7 @@
      <!-- Navbar section -->
 
      <!-- ********** Start Hero section *************-->
-     <section class=" container px-5 py-24 mx-auto bg-center  " style="background-image: url('../public/assets/images/heropic.png')" >
+     <section class=" container px-5 py-24 mx-auto bg-center  " style="background-image: url('assets/images/heropic.png')" >
      <div class="py-8 px-4  lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16 " >
 
         <div class="flex flex-col justify-center">
@@ -45,20 +45,20 @@
             <div class="flex space-x-4 my-8">  
 
 
-
+            <?php foreach ($wikis as $w): ?>
 
 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                         <img class="lg:h-72 md:h-48 w-full object-cover object-center"
-                            src="../public/assets/images/music.png" alt="blog">
+                            src="assets/images/herofinal.png" alt="blog">
                         <div class="p-6 hover:bg-red-700 hover:text-white transition duration-300 ease-in">
-                            <h2 class="text-base font-medium text-indigo-300 mb-1">October 29,
-                                2021</h2>
-                            <h1 class="text-2xl font-semibold mb-3">Cities are crowded</h1>
-                            <p class="leading-relaxed mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aperiam modi, expedita quos doloremque autem ipsum itaque incidunt ipsam reprehenderit
-                                fuga! Dolores quisquam eius cum accusamus?</p>
-                         
+                            
+                            <h1 class="text-2xl font-semibold mb-3"><?=$w['titre_wiki']?> </h1>
+
+                            <p class="leading-relaxed mb-3"><?=$w['contenu']?></p>
+                            <h4 class="text-green-600 font-semibold mb-3">Categorie : <?=$w['nom']?> </h4>
+                            <h3 class="text-2xl font-semibold mb-3">l'autheur :<?=$w['name']?> </h3>
+
                                 <a href="SingleP.php" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Read more
              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -69,68 +69,8 @@
                    
                 </div>
 </div>
+<?php endforeach; ?>
 
-
-
-
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                        <img class="lg:h-72 md:h-48 w-full object-cover object-center"
-                            src="../public/assets/images/music.png" alt="blog">
-                        <div class="p-6 hover:bg-red-700 hover:text-white transition duration-300 ease-in">
-                            <h2 class="text-base font-medium text-indigo-300 mb-1">October 29,
-                                2021</h2>
-                            <h1 class="text-2xl font-semibold mb-3">Cities are crowded</h1>
-                            <p class="leading-relaxed mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aperiam modi, expedita quos doloremque autem ipsum itaque incidunt ipsam reprehenderit
-                                fuga! Dolores quisquam eius cum accusamus?</p>
-                         
-                                <a href="SingleP.php" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
-                        </div>
-                   
-                </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-<div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                        <img class="lg:h-72 md:h-48 w-full object-cover object-center"
-                            src="../public/assets/images/music.png" alt="blog">
-                        <div class="p-6 hover:bg-red-700 hover:text-white transition duration-300 ease-in">
-                            <h2 class="text-base font-medium text-indigo-300 mb-1">October 29,
-                                2021</h2>
-                            <h1 class="text-2xl font-semibold mb-3">Cities are crowded</h1>
-                            <p class="leading-relaxed mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aperiam modi, expedita quos doloremque autem ipsum itaque incidunt ipsam reprehenderit
-                                fuga! Dolores quisquam eius cum accusamus?</p>
-                         
-
-                                <a href="SingleP.php" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
-                              
-                        </div>
-
-                        
-    </div>
-</div>
 </div>
 </section>
 

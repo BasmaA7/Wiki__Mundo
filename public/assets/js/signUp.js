@@ -4,7 +4,6 @@ const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
 
   let inputName = e.target.elements.name.value;
   let inputEmail = e.target.elements.email.value;
@@ -15,8 +14,8 @@ form.addEventListener("submit", (e) => {
   const passwordError = document.querySelector("#password-error");
 
   const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/i;
-  const nameRegex = /^[A-Za-z]+$/;
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  const nameRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/i;
+  const passwordRegex = /^[A-Za-z\d]{8,}$/;
 
   // Réinitialiser les messages d'erreur
   nameError.classList.add("hidden");
@@ -27,13 +26,19 @@ form.addEventListener("submit", (e) => {
   
   if (!nameRegex.test(inputName)) {
     nameError.classList.remove("hidden");
+  e.preventDefault();
+
   }
 
   if (!emailRegex.test(inputEmail)) {
     emailError.classList.remove("hidden");
+  e.preventDefault();
+
   }
 
   if (!passwordRegex.test(inputPassword)) {
     passwordError.classList.remove("hidden");
+  e.preventDefault();
+
   }
 });

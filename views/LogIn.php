@@ -11,7 +11,7 @@
 
 
 
-<body style="background-image:url(../public/assets/images/signPic.png)">
+<body style="background-image:url(assets/images/signPic.png)">
 <section class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md  dark:bg-gray-900 ">
     <div class="py-8 lg:py-16 px-4  w-[50%] bg-white border rounded-lg dark: dark:bg-gray-700 m-80 text-3xl font-semibold ">
       <h2 class=" mb-16 text-5xl tracking-tight font-SemiBold text-center text-gray-900 dark:text-white font-semibold"> Log <span class="text-orange-500 font-semibold">In</span> </h2>
@@ -26,7 +26,7 @@
 
       <!--FORM-->
 
-      <form  method="POST" id="form" action="/Wiki__Mundo/public/index.php?action=logIn" class="space-y-4 flex flex-col justify-evenly" id="form">
+      <form action="logInaction" method="POST" id="form"  class="space-y-4 flex flex-col justify-evenly">
         <div>
           <input type="email" name='email' 
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light "
@@ -53,7 +53,7 @@
   
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-<script src="../public/assets/js/login.js"></script>
+<script src="assets/js/login.js"></script>
 
 
 </html>

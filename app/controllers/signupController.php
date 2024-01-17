@@ -20,7 +20,8 @@ class SignupController {
         $res = $user->addusers( $name,$email, $password, $role);
 
         if ($res) {
-          echo 'Utilisateur inséré avec succès';
+
+         header('location:logIn');
         } else {
           echo 'Erreur lors de l\'insertion de l\'utilisateur';
         }
@@ -28,6 +29,13 @@ class SignupController {
         echo 'Veuillez remplir tous les champs correctement.';
       }
     }
+
     include_once '../views/SignUp.php';
   }
+  public function login(){
+    include_once '../views/LogIn.php';
+  }
+
+
+
 }

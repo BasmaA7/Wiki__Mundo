@@ -31,9 +31,26 @@ class Wiki {
     
       return ($records);
     }
+    public function selectallwikis()
+    {
+      $query = "SELECT* from  wikis, users.name, categories.nom 
+          FROM wikis 
+          INNER JOIN users ON wikis.user_id = users.id
+          INNER JOIN categories ON wikis.categorie_id = categories.id 
+          WHERE wikis.status = 1 
+          LIMIT 5";
+
+      $stm = $this->db->prepare($query);
+    
+      $stm->execute();
+      $records = $stm->fetchAll(PDO::FETCH_ASSOC);
+    
+    
+      return ($records);
+    }
     public function Reservwikis()
     {
-      $query = "SELECT wikis.titre_wiki, wikis.contenu,wikis.status, users.name, categories.nom 
+      $query = "SELECT wikis.id,wikis.titre_wiki, wikis.contenu,wikis.status, users.name, categories.nom 
           FROM wikis 
           INNER JOIN users ON wikis.user_id = users.id
           INNER JOIN categories ON wikis.categorie_id = categories.id 
@@ -47,44 +64,42 @@ class Wiki {
     
     
       return ($records);
+
+    
     }
+     public function accept($id) {
+      $stmt =  $this->db->prepare("update wikis set status = 1 where id = $id");
+      $stmt->execute();
+     
+
 
 
 }
-// class Wiki {
+public function addWiki($titre,$contenu,$categorie,$id,$tags)
+    {
+        $query = $this->db->prepare("INSERT INTO wikis( titre, contenu, status, categorie_id, user_id)  VALUES(:titre, :contenu, :isAccepted, :id_categorie, :id_user)");
+        $query->bindValue(':titre', $titre);
+        $query->bindValue(':contenu', $contenu);
+        $query->bindValue(':id_categorie', $categorie);
+        $query->bindValue(':id_user',$id);
+        $query->bindValue(':isAccepted', 0);
+        $query->execute();
+
+
+        $lastInsertId = $this->db->lastInsertId();
+        foreach($tags as $tag):
+        $query = $this->db->prepare("INSERT INTO wikitags( id_wiki, id_tag)   VALUES($lastInsertId,:tag)");
+        $query->bindValue(':tag', $tag);
+        $res = $query->execute();
+        endforeach;
+        return $res;
+    }
+
+    }
+
+
 
    
-//     private $db;
-//     private $conn;
-//     public function __construct()
-//     {
-//         $this->conn = Connexion::getInst();
-//         $this->db = $this->conn->getConnection();
-
-//     }
-//     public function getallwikis()
-//     {
-
-//         $query = "SELECT w.*, c.name as name FROM wikis w INNER JOIN categories c ON w.categorie_id = c.id WHERE w.statue = 0";
-//         $stm = $this->db->prepare($query);
-//         $stm->execute();
-//         $res = $stm->fetchAll(PDO::FETCH_ASSOC);
-
-//         return ($res);
-//     }
-//     public function getwikis(){
-//         $query = "SELECT w.titre_wiki, c.nom, w.contenu FROM wikis w INNER JOIN categories c ON w.id_categorie = c.id WHERE w.statue = 1 LIMIT 6";  
-//          $stm = $this->db->prepare($query);
-//         $stm->execute();
-        
-       
-//         $res = $stm->fetchAll(PDO::FETCH_ASSOC);
+  
       
-//         return($res);
-//     }
-//     // public function countWiki(){
-//     //   $query = "SELECT count(*) from wikis";
-//     //   $stmt = $this->db->prepare($query);
-//     //   $stmt->execute();
-//     // }
-// }
+
